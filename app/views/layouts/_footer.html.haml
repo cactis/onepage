@@ -1,0 +1,66 @@
+%section
+  .block
+    %h1 本站使用
+    %ul
+      %li= link_to "Less", 'http://lesscss.org/'
+      %li= link_to 'The Semantic Grid System', 'http://semantic.gs/'
+      %li= link_to "Preboot.less", "http://markdotto.com/bootstrap/"
+      %li= link_to "Less Elements", "http://lesselements.com/"
+      %li= link_to "CoffeeScript", "http://coffeescript.org/"
+      %li= link_to "HAML", "http://haml.info/"
+      %li= link_to "Ruby On Rails", "http://rubyonrails.org/"
+      %li= link_to "MySQL", "http://www.mysql.com/"
+      %li= link_to "Ubuntu", "http://www.ubuntu.com/business"
+
+  .block
+    %h1 推薦網站
+    %ul
+      %li= link_to "學樂樂 - 線上測驗學習社群", "http://xuelele.com.tw"
+      %li= link_to "Notiz - 便條紙虛擬桌面", 'http://notiz.airfont.com'
+      %li= link_to "大專院校系所辦公室網站專用平台", "http://www.fiterl.net"
+      %li= link_to "快速架站平台", "http://www.airfont.com"
+
+
+  .block
+    %h1 友好連結
+    %ul
+      %li= link_to "YOURSHEEN", 'http://www.yoursheen.com'
+      %li= link_to "明華農機廠(minwa)", 'http://www.minwa.com.tw'
+      %li= link_to "中國文化大學哲學系", 'http://philo.pccu.edu.tw'
+      %li= link_to "中國文化大學中文系文藝創作組", 'http://clcw.pccu.edu.tw'
+      %li= link_to "洪明洲教學網站", 'http://www.learn2mgt.com'
+
+
+
+  .block
+    %h1 與我聯擊
+    %ul
+      %li= link_to 'Onepage', '/users/1', :target => '_blank'
+      %li= link_to 'Google+', 'https://plus.google.com/u/0/115012648521023249100/posts'
+      %li= link_to 'Twitter', 'https://twitter.com/chitsung'
+      %li= link_to 'Facebook', 'https://www.facebook.com/chitsung.lin'
+      %li= mail_to 'chitsung.lin@gmail.com', '電子郵件'
+
+-# %section
+  #teck
+    本站使用單色設計，原始色(頁面底色)是 hsl(215, 60%, 90%)，其餘皆利用 Less 的色彩計算得到各種配色的變化及控制。
+
+#copyright
+  2012 &copy;
+
+-#
+  %ul
+    %li= open("|more /etc/issue").read().match(/Ubuntu \d*.\d*/)
+    %li= open("|uname -a").read()
+    %li= open("|uptime").read()
+  %ul
+    %li= open("|ruby -v").read()
+    %li= open("|passenger -v").read().split('"Phusion Passenger"')[0]
+    %li= "Rails: #{Rails::VERSION::STRING}"
+  %ul
+    %li= "mode: #{Rails.env}"
+    %li= "root: #{Rails.root.to_s}"
+-# if supervisor?
+  %ul.current_path
+    %li= Rails.env
+    %li= request.symbolized_path_parameters.map{|k,v| "#{k}: #{v}"}*(', ')

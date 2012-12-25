@@ -1,0 +1,31 @@
+!!! 5
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{:name => 'viewport', :content => 'width=device-width, initial-scale=1.0'}
+    = javascript_include_tag 'application'
+    = javascript_include_tag "http://#{$SNIPPET_HOST}:9293/pusher/faye.js"
+    = include_gon
+    = javascript_include_tag 'preview'
+
+    = stylesheet_link_tag 'pages_show'
+    = javascript_include_tag 'pages_show'
+
+    -# %link{:rel => 'stylesheet/less', :href => "/books/#{@page.book.id}/pages/#{@page.id}/default.less", 'data-type' => 'preview' }
+    -# %link{:rel => 'stylesheet/less', :href => "/books/#{@page.book.id}/pages/#{@page.id}/desktop.less", 'data-type' => 'preview' }
+
+    -# %script{:src => 'http://cdnjs.cloudflare.com/ajax/libs/less.js/1.3.0/less-1.3.0.min.js'}
+
+    -# = @page.head.html_safe
+
+    %title{'data-type' => 'preview'}
+      = "[desktop] #{@page.title}"
+
+    :javascript
+      device = 'desktop'
+
+  %body
+    = @page.body_to_html
+    -# #preview_container1
+    -# #preview_holder
+    -#  #preview_content

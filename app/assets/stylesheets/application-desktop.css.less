@@ -1,0 +1,88 @@
+@import 'semantic.gs/stylesheets/less/grid.less';
+@import 'elements.less';
+@import 'Preboot.less/bootstrap.less';
+@import 'extra.less';
+
+@total-width: 100%;
+
+.grid{
+  width: 960px;
+  margin: 0 auto;
+  .clearfix;
+}
+
+section{
+  margin: 3em 0;
+  section{
+    margin: 0 0 3em 0;
+  }
+}
+
+
+table{
+  margin-top: 1em;
+  width: 100%;
+}
+
+td, th{
+  font-weight: normal;
+  padding: 0.5em 1em;
+  border-bottom: 1px solid #ddd;
+}
+
+header{
+  padding: 0.2em 0;
+  .clearfix;
+  #logo{
+    font-size: 2em;
+    .column(3);
+  }
+
+  nav{
+    .column(9);
+    text-align: right;
+    margin-top: 0.5em;
+    li{
+      padding: 0.2em 0.3em;
+      font-size: 1.2em;
+    }
+  }
+}
+
+#main{
+  .column(12);
+}
+
+
+.box{
+  border: 1px solid #ccc;
+  .box-shadow(0 30px 25px -30px #ddd);
+  padding: 1em;
+  margin-bottom: 1em;
+  .clearfix;
+}
+
+// welcome index
+.books{
+  .book{
+    .column(3);
+    .box;
+  }
+}
+
+.actions{
+  .column(12);
+  text-align: right;
+  padding: 1em 0;
+}
+
+.new_user{
+  .column(6);
+  .pull(1);
+}
+
+
+body::before, body::after{
+  content: none!important;
+  display: none!important;
+}

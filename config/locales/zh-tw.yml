@@ -1,0 +1,277 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+zh-tw:
+  helpers:
+    submit:
+      create: "建立 %{model}"
+      update: "更新 %{model}"
+
+  will_paginate:
+    first_label: "第一頁" #"«"
+    last_label: "最末頁" #"»"
+    previous_label: "上一頁" #"‹"
+    next_label: "下一頁" #"›"
+    page_gap: "…"
+  date:
+    formats:
+      default: "%Y-%m-%d"
+      short: "%b%d日"
+      long: "%Y年%b%d日"
+    day_names: [星期日, 星期一, 星期二, 星期三, 星期四, 星期五, 星期六]
+    abbr_day_names: [日, 一, 二, 三, 四, 五, 六]
+    month_names: [~, 一月, 二月, 三月, 四月, 五月, 六月, 七月, 八月, 九月, 十月, 十一月, 十二月]
+    abbr_month_names: [~, 1月, 2月, 3月, 4月, 5月, 6月, 7月, 8月, 9月, 10月, 11月, 12月]
+    order:
+      :year
+      :month
+      :day
+
+  time:
+    formats:
+      #default: "%a, %d %b %Y %H:%M:%S %z"
+      default: "%Y年%b%d日(%a)%H:%M"
+      short: "%b%d日 %H:%M"
+      long: "%Y年%b%d日 %H:%M"
+    am: "上午"
+    pm: "下午"
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "半分鐘"
+      less_than_x_seconds:
+        one: "不到%{count}秒"
+        other: "不到%{count}秒"
+      x_seconds:
+        one: "%{count}秒"
+        other: "%{count}秒"
+      less_than_x_minutes:
+        one: "%{count}分鐘"
+        other: "%{count} 分鐘"
+      x_minutes:
+        one: "%{count}分鐘"
+        other: "%{count}分鐘"
+      about_x_hours:
+        one: "%{count}小時"
+        other: "%{count}小時"
+      x_days:
+        one: "%{count}天"
+        other: "%{count}天"
+      about_x_months:
+        one: "%{count}個月"
+        other: "%{count}個月"
+      x_months:
+        one: "%{count}個月"
+        other: "%{count}個月"
+      about_x_years:
+        one: "%{count}年"
+        other: "%{count}年"
+      almost_x_years:
+        one: "%{count}年"
+        other: "%{count}年"
+      over_x_years:
+        one: "%{count}年"
+        other: "%{count}年"
+    prompts:
+      year: "年"
+      month: "月"
+      day: "日"
+      hour: "時"
+      minute: "分"
+      second: "秒"
+
+  number:
+    format:
+      separator: "."
+      delimiter: ","
+      precision: 3
+    currency:
+      format:
+        format: "%u %n"
+        unit: "NT$"
+        separator: "."
+        delimiter: ","
+        precision: 2
+    percentage:
+      format:
+        delimiter: ""
+    precision:
+      format:
+        delimiter: ""
+    human:
+      format:
+        delimiter: ""
+        precision: 1
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " 和 "
+      last_word_connector: ", 和 "
+
+
+
+  errors:
+    template:
+      header:
+        one: "1 個錯誤，%{model}資料無法儲存。"
+        other: "%{count} 個錯誤，%{model}資料無法儲存。"
+      body: "錯誤說明："
+    messages:
+      not_saved: "儲存失敗"
+      inclusion: "沒有包含在列表中"
+      exclusion: "是被保留的"
+      invalid: "無效"
+      confirmation: "比對不相符"
+      accepted: "必須是可被接受的"
+      empty: "不能為空白"
+      blank: "不能為空白"
+      too_long: "過長(最長%{count}個字)"
+      too_short: "過短(最短%{count}個字)"
+      wrong_length: "字數錯誤(必須%{count}個字)"
+      taken: "已被使用"
+      not_a_number: "必須為數字"
+      greater_than: "必須大於%{count}"
+      greater_than_or_equal_to: "必須大於或等於%{count}"
+      equal_to: "必須等於%{count}"
+      less_than: "必須小於%{count}"
+      less_than_or_equal_to: "必須小於或等於%{count}"
+      odd: "須為奇數"
+      even: "須為偶數"
+
+
+  activerecord:
+    models:
+      contact_im: 即時通訊
+      contact_user_defined: 用戶自訂
+      contact_email: 電子郵件
+      contact_website: 網址
+      contact_relation: 關係
+      contact_phone_number: 電話
+      contact_address: 地址
+      contact_event: 事件
+      contact_group: 群組
+
+    attributes:
+      sending:
+        name: 寄件人全名
+        sign: 寄件人署名
+        subject: 標題
+        email: 寄件人地址
+        body: 祝福對方的話
+        sending_at: 統一寄送時間
+      sending_to:
+        name: 收件人全名
+        nickname: 收件人暱稱
+        subject: 標題
+        email: 收件人地址
+        sign: 寄件人署名
+        sending_at: 個別寄送時間
+      contact:
+        file_as: 顯示名稱
+        given_name: 名字
+        middle_name: 中間名
+        family_name: 姓氏
+        nickname: 暱稱
+        birthday: 生日
+        note: 備註
+        title: 稱呼
+        honorific_prefix: 前稱謂
+        honorific_suffix: 後稱謂
+        formatted: 全名
+
+
+  activerecord:
+    models:
+      comment: 留言
+      contact_im: 即時通訊
+      contact_user_defined: 用戶自訂
+      contact_email: 電子郵件
+      contact_website: 網址
+      contact_relation: 關係
+      contact_phone_number: 電話
+      contact_address: 地址
+      contact_event: 事件
+      contact_group: 群組
+
+    attributes:
+      comment:
+        body: 留言
+      user:
+        email: 電子郵件
+        password: 密碼
+        password_confirmation: 確認密碼
+      sending:
+        name: 寄件人全名
+        sign: 寄件人署名
+        subject: 標題
+        email: 寄件人地址
+        body: 祝福對方的話
+        sending_at: 統一寄送時間
+      sending_to:
+        name: 收件人全名
+        nickname: 收件人暱稱
+        subject: 標題
+        email: 收件人地址
+        sign: 寄件人署名
+        sending_at: 個別寄送時間
+      contact:
+        file_as: 顯示名稱
+        given_name: 名字
+        middle_name: 中間名
+        family_name: 姓氏
+        nickname: 暱稱
+        birthday: 生日
+        note: 備註
+        title: 稱呼
+        honorific_prefix: 前稱謂
+        honorific_suffix: 後稱謂
+        formatted: 全名
+      calendar:
+        summary: 活動名稱
+        location: 地點
+        description: 活動說明
+      calendar_event:
+        summary: 活動名稱
+        location: 地點
+        description: 活動說明
+
+  simple_form:
+    labels:
+      admin_menu:
+        name: 名稱
+        value: 網址
+    placeholders:
+      contact:
+        given_name: 名字
+        middle_name: 中間名
+        family_name: 姓氏
+        nickname: 暱稱
+        birthday: 生日
+        note: 備註
+        title: 稱呼
+        honorific_prefix: 前稱謂
+        honorific_suffix: 後稱謂
+        formatted: 全名
+
+
+
+  web-app-theme:
+    confirm: 確定刪除本記錄?
+  views:
+    pagination:
+      truncate: …
+      first: '«'
+      last: '»'
+      previous: '‹'
+      next: '›'

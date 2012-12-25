@@ -1,0 +1,147 @@
+
+@fontAwesomeEotPath: '/assets/fontawesome-webfont.eot';
+@fontAwesomeWoffPath: '/assets/fontawesome-webfont.woff';
+@fontAwesomeTtfPath: '/assets/fontawesome-webfont.ttf';
+@fontAwesomeSvgPath: '/assets/fontawesome-webfont.svg';
+
+@import "fontawesome";
+
+@import 'elements.less';
+
+
+//.tab-pane{
+//  .transition(0.5s, ease-in);
+//  display: none;
+//  &.active{
+//    display: block;
+//  }
+//}
+
+
+.tab-content{
+  height: 550px;
+  overflow: hidden;
+  position: relative;
+  .tab-container{
+    width: 100%;
+    .tab-pane{
+      display: none;
+      textarea{
+        height: 400px;
+        width: 99.5%;
+      }
+    }
+    #body_editor{
+      display: block;
+    }
+  }
+}
+
+.option{
+  padding-top: 0.7em;
+  section{
+    margin: 1em 0;
+  }
+  ul{
+    margin-left: 1.1em;
+    li {
+      text-indent: -1.1em;
+    }
+
+  }
+}
+
+.cmd{
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  right: 0;
+  padding: 0.5em 1em;
+  border-radius: 2px 0 0 2px;
+  font-family: arial;
+  color: #fff;
+  font-size: 14px;
+  &:hover{
+    background-color: rgba(0, 0, 0, 1);
+    a{
+      color: #ECCB00;
+      text-decoration: none;
+    }
+  }
+  a{
+    color: #fff;
+    font-size: 1em;
+    font-weight: normal;
+    margin-right: 0.5em;
+    span1{
+      border-right: 5px solid #fff;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      width: 0;
+      height: 0;
+      display: inline-block;
+      margin-right: 1em;
+    }
+  }
+}
+
+#about_screen_size{
+  .cmd;
+  top: 0;
+}
+
+#back_to_home{
+  .cmd;
+  bottom: 5px;
+}
+
+
+.page1{
+  text-decoration: none;
+  cursor: pointer;
+  position: fixed;
+  top: 40%;
+  font-size: 1em;
+  padding: 10px!important;
+  background-color: rgba(0, 0, 0, 1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  opacity: 0.3;
+  .transition-duration(1s);
+  .box-shadow(0 0 1px rgba(0, 0, 0, 1));
+  text-shadow: 0 2px 1px #000, 0 2px 1px #fff;
+  &:hover{
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.9);
+    .box-shadow(0 0 23px rgba(0, 0, 0, 1));
+    color: #fff;
+    text-shadow: 0 1px 2px #000, 0 0 2px #fff;
+  }
+}
+
+#prev_page{
+  .page1;
+  left: 0;
+  .rounded(0 10px 10px 0);
+  border-left: 0;
+}
+
+#next_page{
+  .page1;
+  right: 0;
+  .rounded(10px 0 0 10px);
+  border-right: 0;
+}
+
+select{
+  margin-top: 0.6em;
+}
+
+.select.optional.control-label{
+  &, .controls{
+    display: inline-block;
+  }
+}
+
+.dropdown li{
+  text-align: left;
+}

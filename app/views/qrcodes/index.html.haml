@@ -1,0 +1,8 @@
+= form_tag '/qrcodes', :method => :get do
+  = label_tag :text, 'Text: '
+  = text_field_tag :text
+  = submit_tag 'Generate QRCode!', :class => 'btn-primary'
+
+
+.script
+  = "<script src='#{Settings.full_host}/assets/qrcodes_lib.js'></script>"

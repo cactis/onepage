@@ -1,0 +1,16 @@
+- @versions.each do |version|
+  .version{:id => dom_id(version)}
+    .number
+      = "version: #{version.number}"
+    - if version.modifications['title']
+      .title
+        = version.modifications['title'][0]
+    - if version.modifications['content']
+      .modifications
+        = text_area_tag :dd, raw(version.modifications['content'][0])
+    .alignRight
+      = time_ago_in_words version.created_at
+
+返回:
+= link_to @snippet.title, eval("edit_#{@snippet.class.to_s.underscore}_path(@snippet)")
+

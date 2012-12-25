@@ -1,0 +1,34 @@
+// extra less
+
+.box-sizing(@box: border-box){
+  -webkit-box-sizing: @box;
+  -moz-box-sizing: @box;
+  box-sizing: @box;
+}
+
+.background-size-cover{
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
+
+.auto-bg (@a) when (lightness(@a) >= 50%) {
+  background-color: black;
+}
+.auto-bg (@a) when (lightness(@a) < 50%) {
+  background-color: white;
+}
+.auto-bg (@a) {
+  color: @a;
+}
+
+
+.auto-color (@a) when (lightness(@a) >= 50%) {
+  color: black;
+}
+.auto-color (@a) when (lightness(@a) < 50%) {
+  color: white;
+}
+.auto-color (@a) {
+  background-color: @a;
+}

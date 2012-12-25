@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--[if IE]><script src="../js/explorercanvas/excanvas.js"></script><![endif]-->
+<script src="../js/jsgamesoup.js"></script>
+<script>
+function startAsteroids(gs) {
+	function Asteroid(radius, x, y) {
+		// variables
+		this.x = x || gs.random(0, gs.width);
+		this.y = y || gs.random(0, gs.height);
+		this.angle = gs.random(0, Math.PI);
+		this.radius = radius || 40;
+		// velocities
+		this.angleV = gs.random(-0.1, 0.1);
+		this.xV = gs.random(-0.5, 0.5);
+		this.yV = gs.random(-0.5, 0.5);
+		// structure of this shape
+		this.points = [];
+		this.randomPoint = function() {
+			return gs.random(-this.radius/2, this.radius/2);
+		}
+		for (i = 0; i < Math.round(this.radius / 5); i++)
+			this.points.push([this.radius * Math.sin(i * Math.PI / Math.round(this.radius / 10)) + this.randomPoint(),
+				this.radius * Math.cos(i * Math.PI / Math.round(this.radius / 10)) + this.randomPoint()]);
+		this.poly = [];
+		
+		this.collisionPoly = function() {
+			return this.poly;
+		}
+		
+		this.pointerDown = function() {
+			if (this.radius > 25) {
+				gs.addEntity(new Asteroid(this.radius / 3 * 2, this.x + this.randomPoint(), this.y + this.randomPoint()));
+				gs.addEntity(new Asteroid(this.radius / 3 * 2, this.x + this.randomPoint(), this.y + this.randomPoint()));
+			}
+			gs.delEntity(this);
+		}
+		
+		this.update = function() {
+			// update all our state variables
+			this.angle += this.angleV;
+			this.x = (this.x + this.xV + gs.width) % gs.width;
+			this.y = (this.y + this.yV + gs.height) % gs.height;
+			// update our shape definition
+			for (n=0; n<this.points.length; n++) {
+				this.poly[n] = [this.points[n][0] * Math.cos(this.angle) - this.points[n][1] * Math.sin(this.angle) + this.x, this.points[n][0] * Math.sin(this.angle) + this.points[n][1] * Math.cos(this.angle) + this.y];
+			}
+		}
+		
+		this.draw = function(c) {
+			c.strokeStyle = 'rgba(255, 255, 255, 1.0)';
+			gs.polygon(this.poly);
+		}
+	}
+	
+	function World() {
+		this.draw = function() {
+			gs.clear();
+			gs.background('rgba(100, 100, 100, 1.0)');
+		}
+	}
+	
+	gs.addEntity(new World());
+	gs.addEntity(new Asteroid());
+	gs.addEntity(new Asteroid());
+	gs.addEntity(new Asteroid());
+	gs.addEntity(new Asteroid());
+	gs.addEntity(new Asteroid());
+}
+</script>
+</head>
+<body>
+<canvas id='asteroids' jsgs="startAsteroids" fps="40"></canvas>
+</body>
+</html>

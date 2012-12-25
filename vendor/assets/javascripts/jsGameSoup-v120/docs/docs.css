@@ -1,0 +1,38 @@
+body {
+	padding-left: 20%;
+	padding-right: 20%;
+	padding-top: 30px;
+	background: #1a1a1a;
+	color: white;
+	font-family: Arial;
+}
+
+img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid white;
+}
+
+p {
+	margin-left: 2%;
+}
+
+pre {
+	margin-left: 4%;
+}
+
+a {
+	color: #f60;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+#logo {
+	margin: 0px;
+	border: 0px solid black;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader("jsGameSoup-logo.png");
+}

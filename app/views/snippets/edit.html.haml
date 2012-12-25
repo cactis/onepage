@@ -1,0 +1,31 @@
+.row
+  = title "編輯: #{@snippet.title}".html_safe
+.row-fluid
+  #editor.span6
+    = form_for @snippet, :remote => true do |f|
+      = render :partial => "form", :locals => {:f => f}
+    預覽:
+    = link_to_snippet_display(@snippet)
+    = author_tools(@snippet)
+    = render :partial => 'colorbox'
+    = link_to_versions(@snippet)
+  .span6#preview_container
+    #preview_holder.nano
+      #preview_content
+        = render :partial => @snippet.class.name.underscore, :locals => {:mode => params[:mode]}
+    -#button
+
+:javascript
+  var isCtrl = false;
+  $(document).keydown(function(e){
+    if(e.which == 17) {
+      isCtrl = true;
+    };
+    if(e.which == 83 && isCtrl == true) {
+      isCtrl = false;
+      var form_name = "#edit_#{@snippet.class.to_s.downcase}_#{@snippet.id}";
+      $(form_name).submit();
+      return false;
+    }else{
+    }
+  })

@@ -1,0 +1,22 @@
+.grid
+  #logo
+    = link_to "<span class='icon'>b</span> OnePage".html_safe, root_path
+  %nav#nav
+    %ul
+      %li= link_to '建立網站', new_book_path
+      %li= link_to '網站流覽', books_path
+      %li= link_to '網頁流覽', pages_path
+      %li.divider
+      %li= link_to '網頁設計101', '/pages/390'
+      %li= link_to '使用手冊', '/pages/405'
+
+      %li.divider
+      - if current_user
+        %li
+          %span.username= link_to current_user.title, user_path(current_user)
+          \/
+          = link_to "登出", destroy_user_session_path
+
+      - else
+        %li= link_to "註冊", new_user_registration_path
+        %li= link_to "登入", new_user_session_path

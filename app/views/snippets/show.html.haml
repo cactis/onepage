@@ -1,0 +1,16 @@
+= render :partial => @snippet.class.name.underscore, :locals => {:mode => params[:mode]}
+
+%p#notice= notice
+= author_tools(@snippet)
+
+%h1= @snippet.title
+.description= @snippet.description
+
+
+#snippet_content
+  %pre{:class => 'brush: js'}
+    = @snippet.content.html_safe
+
+-# %script
+  SyntaxHighlighter.all();
+

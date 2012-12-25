@@ -1,0 +1,40 @@
+= javascript_include_tag "jquery/jquery.editable-1.3.3"
+-# = javascript_include_tag "jquery/jqDnR"
+-#= javascript_include_tag "jquery/jquery.jeditable.mini"
+-# = javascript_include_tag "jquery/topzindex/jquery.topzindex.min"
+= javascript_include_tag "jquery/colorpicker/js/colorpicker"
+= stylesheet_link_tag "/javascripts/jquery/colorpicker/css/colorpicker"
+
+= javascript_include_tag "jquery/jquery.xcolor"
+= javascript_include_tag "jquery/jquery.sizes.min"
+
+= javascript_include_tag "#{controller_name}_#{action_name}"
+= stylesheet_link_tag "#{controller_name}_#{action_name}"
+
+
+
+#aside
+  %h2 Tools
+  #toolset.toolset
+    .text_field.obj
+      %span.content="text filed"
+  %h2 Background
+  #backgrounds.toolset
+    .background_image
+      = image_tag("/images/vectorstock-158381-comic-balloons-vector.jpg")
+    .background_image
+      = image_tag("/images/free-stock-images-stone-wall-texture-background-500x375.jpg")
+    .background_image
+      = image_tag("/images/sparkling-water-stock-image.jpg")
+    .background_image
+      = image_tag("/images/wall001.com_photography_FF117.jpg")
+
+#article
+  = render :partial => "toolbar"
+
+  #container
+    - if @template.content.present?
+      = @template.content.to_s.html_safe
+    - else
+      #editor
+

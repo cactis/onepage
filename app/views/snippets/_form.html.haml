@@ -1,0 +1,32 @@
+-# = javascript_include_tag '/ckeditor/ckeditor'
+-# = render :partial => 'highlights'
+
+-if @snippet.errors.any?
+  #error_explanation
+    %h2= "#{pluralize(@snippet.errors.count, "error")} prohibited this snippet from being saved:"
+    %ul
+      - @snippet.errors.full_messages.each do |msg|
+        %li= msg
+.row-line
+  = f.text_area :content, :value => @snippet.content, :class => 'code_editor', :id => 'code_editor'
+.row-line
+  = f.label :title, "標題"
+  = f.text_field :title
+.row-line
+  = f.label :description, "說明"
+  = f.text_area :description, :cols => 80, :rows => 2
+.row-line
+  = f.label :to_clone, "另存"
+  = f.check_box :to_clone
+.alignRight
+  = f.submit 'Save(Ctrl-S)'
+
+
+:javascript
+  $(document).ready(function(){
+    $('textarea').tabOverride();
+    //$('#jspice_content').tabable({ tab: '  '})
+    var h = window.innerHeight;
+    var editor = $("##{@snippet.class.to_s.downcase}_content");
+    editor.height(h - 350);
+  })

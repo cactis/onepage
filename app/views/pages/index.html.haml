@@ -1,0 +1,23 @@
+%h1 網頁作品清單
+
+%table
+  %thead
+    %tr
+      %th 標題
+      %th 書籍
+      %th 作者
+      %th 最後更新日
+      %th 創建日
+      %th 編輯
+      %th 刪除
+  - @pages.each do |page|
+    %tr
+      %td= link_to_polymorphic page
+      %td= link_to_polymorphic page.book
+      %td= link_to_polymorphic page.user
+      %td= time_ago_in_words page.updated_at
+      %td= time_ago_in_words page.created_at
+      %td= link_to 'Edit', edit_page_path(page)
+      %td= link_to 'Destroy', page, :confirm => 'Are you sure?', :method => :delete
+
+= paginate @pages      

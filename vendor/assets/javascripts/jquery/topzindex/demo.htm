@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<title>TopZIndex plugin for jQuery</title>
+
+	<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+	<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+	<script type="text/javascript" src="jquery.topzindex.js"></script>
+</head>
+<body>
+<h1>TopZIndex plugin for jQuery</h1>
+<h2>v 1.2</h2>
+<p>Click on the colored blocks to bring them to the top. The current z-index is shown on each block.</p>
+<div id="demoBlocks" style="position:relative; background-color:lightyellow;"></div>
+<p id="status"></p>
+	
+<script type="text/javascript">
+	$(function () {
+		var $container = $("#demoBlocks"),
+			$status = $("#status"),
+			tl = 50;
+		
+		$.each(["Blue", "Green", "Yellow", "Red"],
+			function (i, v) {
+				$container.append('<div style="position:absolute; width:200px; height:200px; top:' + tl + 'px; left:' + tl + 'px; background-color:' + v + '; text-align:right;"></div>');
+				tl += 50;
+			}
+		);
+		
+		$container.width(tl + 200).height(tl + 200).find("div").each(
+			function () {
+				$(this).text($(this).css("z-index"));
+			}
+		).click(
+			function () {
+				$(this).topZIndex().text(this.style.zIndex);
+				showZIndex();
+			}
+		);
+		
+		showZIndex();
+		
+		function showZIndex() {
+			$status.text("Top z-index: " + $.topZIndex());
+		}
+	});
+</script>
+</body>
+</html>
+
+
+
+
+

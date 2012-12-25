@@ -1,0 +1,63 @@
+
+.different (@a) when (lightness(@a) >= 50%){
+  return: red; //darken(@a, 50%);
+}
+
+.different (@a) when (lightness(@a) < 50%){
+  return: blue; //lighten(@a, 50%);
+}
+
+.different (@a) {
+
+}
+
+.mixin (@a) when (lightness(@a) >= 50%) {
+  color: #333;
+  a{
+    color: #000;
+    &:hover{
+    }
+  }
+}
+.mixin (@a) when (lightness(@a) < 50%) {
+  color: #ddd;
+  a{
+    color: #fff;
+    &:hover{
+    }
+  }
+}
+
+.mixin (@a) {
+  background-color: @a;
+}
+
+.gradient-mixin (@a) when (lightness(@a) >= 50%) {
+  @c: @a;
+  background-color: @c;
+  color: #333;
+  @x: @c;
+  @y: darken(@c, 3);
+  @z: lighten(@c, 5);
+  .gradient(@x, @y, @z);
+  #gradient > .vertical-three-colors(@x, @y, .105, @z);
+  a{
+    color: #000;
+    &:hover{
+    }
+  }
+}
+
+.gradient-mixin (@a) when (lightness(@a) < 50%) {
+  @c: @a;
+  background-color: @c;
+  color: #ddd;
+  @x: @c;
+  @y: darken(@c, 3);
+  @z: lighten(@c, 5);
+  .gradient(@x, @y, @z);
+  #gradient > .vertical-three-colors(@x, @y, .105, @z);
+  a{
+    color: #fff;
+  }
+}

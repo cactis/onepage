@@ -1,0 +1,30 @@
+#toolbar
+  = form_for @template, :method => :put do |f|
+    = f.hidden_field :content
+    = submit_tag "update", :onclick => "$('#template_content').val($('#container').html());$(this).closest('form').submit();return false"
+  = link_to 'Destroy', template_path(@template), :confirm => 'Are you sure?', :method => :delete
+  = link_to 'Reset', "#", :onclick => "$('#container').html(null); return false"
+  font size:
+  = number_field_tag 'font_size_spinner', 12, :in => 12..100, :class => "ui-spinner-box"
+  transparency:
+  = number_field_tag 'opacity_spinner', 100, :in => 10..100, :class => "ui-spinner-box"
+  -#border radius:
+  -#= number_field_tag 'radius_spinner', 0, :in => 0..100, :class => "ui-spinner-box"
+  padding:
+  = number_field_tag 'padding_spinner', 0, :in => 0..100, :class => "ui-spinner-box"
+  text shadow:
+  = number_field_tag 'text_shadow_spinner', 0, :in => 0..10, :class => "ui-spinner-box"
+
+  = link_to "del", "#", :onclick => "$('.current').remove(); return false;"
+  = link_to "left", "#", :onclick => "$('.current').css('text-align', 'left'); return false;"
+  = link_to "center", "#", :onclick => "$('.current').css('text-align', 'center'); return false;"
+  = link_to "right", "#", :onclick => "$('.current').css('text-align', 'right'); return false;"
+  = link_to "top", "#", :onclick => "$('.current, .current .content').css('vertical-align', 'text-top'); return false;"
+  = link_to "middle", "#", :onclick => "$('.current, .current .content').css('vertical-align', 'middle'); return false;"
+  = link_to "bottom", "#", :onclick => "$('.current, .current .content').css('vertical-align', 'text-bottom'); return false;"
+  #ForeColorSelector
+    %div
+  #BackgroundColorSelector
+    %div
+  = link_to "x", "#", :onclick => "$('.current').css('background', ''); return false", :title => "remove background color"
+

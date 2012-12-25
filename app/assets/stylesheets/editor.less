@@ -1,0 +1,83 @@
+
+@import 'semantic.gs/stylesheets/less/grid.less';
+@import 'elements.less';
+@import 'Preboot.less/bootstrap.less';
+
+@import 'raphaelicons/raphaelicons.css';
+
+@total-width: 100%;
+@columns: 12;
+
+
+@import 'colors';
+
+body{
+  overflow-y: scroll;
+}
+
+#wrapper{
+  &, .grid{
+    .column(12);
+  }
+}
+
+
+
+section{
+  form{
+    .column(12);
+    .row(12);
+    .form-inputs{
+      .column(10);
+      .editor{
+        .clearfix;
+        .row(10);
+        .tabbable{
+          .clearfix;
+          #tabs{
+            .column(2);
+          }
+          .tab-content{
+            .column(10);
+          }
+        }
+      }
+    }
+    .option{
+      .column(2);
+      .btn{
+        margin-bottom: 1px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+textarea{
+  // font-family: 'Menlo', 'Courier New', 'Terminal', monospace, 'Droid Sans Mono';
+  font-family: 'Droid Sans Mono';
+  width: 100%;
+}
+
+.dropdown-menu{
+  display: none;
+  z-index: 5;
+  position: absolute;
+  margin: 3px 0 0 5px;
+  max-width: 15em;
+  overflow: hidden;
+  li{
+    a{
+      padding: 0.4em 3em 0.4em 2em;
+      white-space: nowrap;
+      display: block;
+    }
+    .icon{
+      margin-right: 0.5em;
+    }
+  }
+}
+ul{
+  list-style-type: none;
+  margin-left: 0;
+}

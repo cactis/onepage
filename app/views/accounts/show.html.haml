@@ -1,0 +1,23 @@
+= title @user.username
+.books
+  = render @books
+
+= paginate @books
+.clearfix
+%hr
+.pages
+  %table.table
+    %thead
+      %th 文件名稱
+      %th 最後更新
+      %th 創建於
+      %th 書籍
+      %th 建立者
+      %th 套用框架
+      %th 愆生自
+      %th 管理
+    %tbody
+    = render @pages
+
+
+= paginate @pages

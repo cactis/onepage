@@ -1,0 +1,23 @@
+- mode = mode || nil
+
+-# = stylesheet_link_tag "/javascripts/syntaxhighlighter/styles/shCore"
+-# = stylesheet_link_tag "/javascripts/syntaxhighlighter/styles/shThemeDefault"
+
+= javascript_include_tag "syntaxhighlighter/scripts/shCore"
+= javascript_include_tag "syntaxhighlighter/scripts/shBrushJScript"
+
+-# = javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"
+-# = javascript_include_tag "excanvas/excanvas.compiled.js"
+= javascript_include_tag "processing.js/processing.js"
+= javascript_include_tag "processing.js/init.js"
+
+
+
+#scratch
+  %iframe{:src => "http://#{$SNIPPET_DISPLAY_HOST}/scratches/#{@snippet.id}", :id => 'iframe'}
+  -# %script{:type => "application/processing"}
+    = raw @snippet.content unless mode == 'rescue'
+
+  -# %canvas#canvas
+    本功能不支援 IE，請使用 Chrome, Firefox, Opera 等其他流覽器。
+

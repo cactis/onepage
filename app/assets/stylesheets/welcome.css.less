@@ -1,0 +1,120 @@
+@import 'semantic.gs/stylesheets/less/grid.less';
+@import 'elements.less';
+@import 'Preboot.less/bootstrap.less';
+@import 'extra.less';
+
+@import 'raphaelicons/raphaelicons.css';
+
+
+@total-width: 100%;
+
+#wrapper > .grid{
+  width: 100%;
+}
+
+
+#whats{
+  .block{
+    .column(3);
+    h2{
+      text-align: center;
+      text-transform: uppercase;
+      font-family: Homenaje, 'Maiden Orange';
+      letter-spacing: 2px;
+      font-size: 3em;
+      font-weight: normal;
+      .rounded(3px);
+      padding: 1em 0;
+
+    }
+  }
+}
+
+#announces{
+  ul{
+    .column(12);
+    margin-left: 2em;
+    li{
+      line-height: 2;
+      font-size: 1.2em;
+    }
+  }
+  .text{
+    .column(8);
+  }
+  .img{
+    .column(4);
+    img{
+      width: 90%;
+    }
+  }
+}
+
+
+#works{
+  .grid{
+    width: 90%;
+    min-width: 960px;
+  }
+}
+
+#gallery-player{
+  width: 100%;
+  margin: 0 auto;
+  #gallery .imgs_list{
+  .img{
+    background-position: center top;
+  }}
+}
+.memo{
+  text-align: right;
+}
+
+
+#documents{
+  .block{
+    .column(6);
+    padding: 1em 2em 2em;
+    .rounded(3px);
+  }
+}
+
+
+
+
+.book{
+  border: 1px solid #ccc;
+  .box-shadow(0 0 5px #eee);
+  .border-radius(3px);
+}
+
+#description{
+  .block{
+    .column(4);
+    span.icon{
+      .column(2);
+      font-size: 2.5em;
+      text-align: center;
+      .rounded(50%);
+    }
+    h2{
+      .column(10);
+      font-size: 2em;
+      margin: 0em 0 0 0;
+    }
+    .text{
+      .clearfix;
+      .column(12);
+      p{
+        margin: 0.5em 0;
+      }
+      ul{
+        margin-left: 1.5em;
+      }
+    }
+  }
+}
+
+h1{
+  margin: 0.5em 0;
+}

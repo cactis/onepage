@@ -1,0 +1,234 @@
+@import 'semantic.gs/stylesheets/less/grid.less';
+@import 'elements.less';
+@import 'Preboot.less/bootstrap.less';
+@import 'extra.less';
+@import 'raphaelicons/raphaelicons.css';
+
+
+@total-width: 100%;
+
+*{
+  padding: 0;
+  margin: 0;
+  line-height: 1.5;
+  .box-sizing;
+  font-family: inherit;
+}
+
+
+@import 'colors';
+
+ul, ol{
+  margin-left: 1.5em;
+}
+
+body{
+  font-family: Ubuntu;
+}
+
+hr{
+  margin: 1em 0;
+}
+
+a{
+  color: inherit;
+  text-decoration: none;
+}
+
+#notice{
+  text-align: center;
+}
+
+input, textarea, select{
+  padding: 0.5em 1em;
+  margin: 0.2em 0;
+}
+
+
+input{
+  &[type=text], &[type=email], &[type=password], &[type=url]{
+    .input;
+  }
+}
+
+textarea{
+  .input;
+}
+
+thead{
+  th{
+    white-space: nowrap;
+  }
+}
+
+section{
+  clear: both;
+  .clearfix;
+}
+
+.input{
+  width: 100%;
+  padding: 0.5em;
+}
+
+h1{
+  margin: 0.5em 0;
+  font-size: 1.5em;
+  line-height: 1.2;
+  font-family: Caudex;
+}
+
+h2{
+  margin: 0.5em 0;
+}
+
+nav{
+  li{
+    display: inline-block;
+  }
+}
+
+form{
+  .control-group, p{
+    margin-bottom: 1em;
+  }
+}
+
+
+#title, .grid > .form-actions{
+  .column(12);
+}
+
+.form-actions{
+  text-align: right;
+  margin-bottom: 2em;
+}
+
+#logo{
+  font-family: Audiowide;
+}
+
+nav{
+  font-family: Crushed;
+}
+
+h1, h2, h3{
+  font-family: Caudex;
+  font-weight: normal;
+}
+
+h1{
+  font-size: 2em;
+}
+
+h2{
+  font-size: 1.5em;
+}
+
+h3{
+  font-size: 1.2em;
+}
+
+footer{
+  margin-top: 5em;
+  padding: 1em 0;
+  .clearfix;
+  clear: both;
+  .block{
+    text-align: left;
+    h1{
+      font-size: 1.2em;
+    }
+    .column(3);
+    ul{
+      list-style-type: circle;
+    li{
+    }
+    }
+  }
+  #teck{
+    .push(8);
+    .column(4);
+    padding: 1em 0;
+  }
+  #copyright{
+    .column(12);
+    padding: 2em 0 1em;
+    text-align: center;
+    font-size: 0.75em;
+  }
+}
+.username{
+  font-family: 'Marck Script';
+  text-transform: Capitalize;
+}
+
+.btn-large{
+  font-size: 2em;
+}
+
+
+.pagination{
+  text-align: center;
+  margin: 2em 0;
+  font-family: arial;
+  font-size: 0.8em;
+
+  span{
+    &.current{
+      color: #666;
+    }
+    a, &.gap, &.current{
+      padding: 0 0.7em;
+      margin: 0 1px;
+    }
+    a:hover{
+      border-bottom: 1px solid #333;
+    }
+  }
+}
+
+.nicEdit-main{
+  background-color: #fff;
+  padding: 0.5em;
+}
+
+#comment_body{
+  height: 150px;
+}
+
+.comment{
+  padding: 1em 0;
+  margin-bottom: 1em;
+  border: 1px solid darken(@body, 10%);
+  .box-shadow(0 0 5px @body);
+  .clearfix;
+  .wrap{
+    .column(12);
+  }
+  .info{
+    font-size: 0.9em;
+    .column(2, 12);
+  }
+  .content{
+    .column(10, 12);
+    .body{
+      img{
+        max-width: 100%;
+      }
+    }
+  }
+  &:nth-child(odd){
+    background-color: darken(@body, 6%);
+    .box-shadow(0 0 3px @body);
+  }
+  &:nth-child(even){
+    background-color: darken(@body, 4%);
+    .box-shadow(0 0 3px @body);
+  }
+}
+
+#switch_user_identifier{
+  float: right;
+  margin-bottom: 2em;
+}

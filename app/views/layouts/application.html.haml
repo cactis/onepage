@@ -1,0 +1,54 @@
+!!! 5
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{:name => 'viewport', :content => 'width=device-width, initial-scale=1.0'}
+    -# %meta{"http-equiv" => "Content-type", :content => "text/html; charset=utf-8"}
+    -# %meta{"http-equiv" => "X-UA-Compatible", "content" => "IE=8"}
+    %title
+      = title :site_name => $APPNAME
+
+    %link{:href => 'http://fonts.googleapis.com/css?family=PT+Mono|Oxygen+Mono|Ubunut+Mono|Droid+Sans+Mono|Caudex|Varela+Round|Marck+Script|Condiment|Ubuntu|Homenaje|Maiden+Orange|Audiowide|Crushed', :rel => 'stylesheet', :type => 'text/css'}
+
+    -# = stylesheet_link_tag "application"
+
+    -#
+      <link href='360/css/default.css' rel='stylesheet'>
+      <link href='360/css/mobile.css' media='screen and (max-width: 480px)' rel='stylesheet'>
+      <link href='360/css/tablet.css' media='screen and (min-width: 481px) and (max-width: 979px)' rel='stylesheet'>
+      <link href='360/css/desktop.css' media='screen and (min-width: 980px)' rel='stylesheet'>
+      <link href='360/css/print.css' media='print' rel='stylesheet'>
+
+
+    = stylesheet_link_tag "application-default"
+    = stylesheet_link_tag "application-desktop", :media => 'screen and (min-width: 980px)'
+    -# = stylesheet_link_tag "colors"
+
+    -# %link{:rel => 'stylesheet/less', :href => '/assets/twitter/bootstrap.less'}
+
+    - if File.exists?("#{Rails.root}/app/assets/stylesheets/#{controller_name}.css.less")
+      = stylesheet_link_tag controller_name
+    - if File.exists?("#{Rails.root}/app/assets/stylesheets/#{controller_name}_#{action_name}.css.less")
+      = stylesheet_link_tag "#{controller_name}_#{action_name}"
+
+    = javascript_include_tag 'application'
+    - if File.exists?("#{Rails.root}/app/assets/javascripts/#{controller_name}.js.coffee")
+      = javascript_include_tag controller_name
+    - if File.exists?("#{Rails.root}/app/assets/javascripts/#{controller_name}_#{action_name}.js.coffee")
+      = javascript_include_tag "#{controller_name}_#{action_name}"
+
+    = include_gon
+
+    = csrf_meta_tag
+  %body
+    %header= render :partial => "/layouts/top"
+    = switch_user_select if current_user
+    - if flash[:notice]
+      %section
+        .grid
+          #notice= flash[:notice]
+    %section#wrapper
+      .grid
+        #main= yield
+    %footer#footer
+      .grid= render :partial => "/layouts/footer"

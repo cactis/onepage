@@ -1,0 +1,14 @@
+= javascript_include_tag "jquery/colorbox/colorbox/jquery.colorbox-min"
+= stylesheet_link_tag "jquery/colorbox/example1/colorbox.css"
+:javascript
+  $('.display').colorbox(
+    { //initialWidth: 800,
+      //initialheight: 500,
+      width: 600,
+      height: 600,
+      iframe: true,
+      onComplete : function() {
+        // $(this).colorbox.resize({width: w, height: h});
+      }
+    }
+  );

@@ -1,0 +1,8 @@
+.book
+  .title= link_to book.title, polymorphic_path(book)
+  .description= book.summary
+  .author= link_to_polymorphic book.user
+  - if can_edit?(book)
+    .form-actions
+      = link_to_edit book
+      = link_to_delete book

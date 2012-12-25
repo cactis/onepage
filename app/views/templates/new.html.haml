@@ -1,0 +1,11 @@
+= title 'New a Template'
+= form_for @template do |f|
+  .row
+    = f.label :title
+    = f.text_field :title
+  .row
+    = f.label :description
+    = f.text_area :description
+  .row.submit
+    = f.submit "Create"
+

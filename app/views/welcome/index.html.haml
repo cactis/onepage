@@ -1,0 +1,101 @@
+
+%section#whats
+  .grid
+    .block
+      %h2 觀摩
+    .block
+      %h2 靈感
+    .block
+      %h2 試驗
+    .block
+      %h2 實現
+
+
+%section#announces
+  .grid
+    .text
+      %h1 為 網頁設計師/數位出版者
+      %ul
+        %li 移動設備的流量比例愈來愈高，正流失移動設備的用戶？
+        %li 忙於應付各種讀取設備(iPad/iPhone/Android/各種尺寸顯示器)？
+        %li 各式框架、套件、網路技術日新月異，需要快速上手？
+        %li 現成的樣版、範例，方便快速修改以應用在工作中？
+        %li HTML5 日趨成熟並迅速普及，如何磨練技巧？
+    .img<
+      %img{:src => '/assets/HTML5_Logo_512.png'}
+
+%section#works
+  .grid
+    #gallery-player
+    .memo
+      (本圖片展示器引用 <a href='http://onepage.airfont.com/pages/361'>http://onepage.airfont.com/pages/361</a>)
+
+
+
+%section#documents
+  .grid
+    .block
+      %h2 基本想法
+      %ul
+        %li 書籍與網站有共通的元素，它們都是由一組頁面組成。
+        %li 使用相同的技術：不論是書籍(ePub)或網站，都 HTML5/CSS3/Javascript 為主要排版語言。
+        %li 每絡頁面都有自己的內容與格式，但也可以引用其他頁面作為樣版，以建立一致性並節省設計時間。
+
+    .block
+      %h2 如何使用
+      %ul
+        %li 建立一本書籍/一個網站，提供相關說明
+        %li 為書籍/網站建立個別頁面
+        %li 視需要，可引用其他頁面作為框架。
+        %li
+          視區塊編輯內容。
+          -# %ul
+            %li body 是頁面的內容區，
+            %li default css 是頁面的基本樣式檔，
+            %li desktop, tablet, mobile 則各是桌面、平板及手機的樣式。
+            %li javascript 是頁面的互動控制區。
+        %li 視需要打開預覽視窗。存檔時(ctrl-s) 會自動更新頁面。
+
+%section
+  .grid
+    .form-actions= link_to "<span class='icon'>></span> 創建新書籍/網站".html_safe, new_book_path, :class => 'btn btn-large btn-primary'
+
+
+%section#description
+  .grid
+    .block
+      %span.icon a
+
+      %h2 特色
+      .text
+        %p 本站包含如下主要：
+        %ul
+          %li 原生的 Responsive Web Design 開發環境
+          %li 自動推播更新測試頁面
+          %li 同步多種設備及流覽器的頁面測試
+          %li 樣版功能，支援多層巢狀框架
+          %li 內建函式庫
+          %li 雲端頁面托管，即開發即發佈
+
+
+
+    .block
+      %span.icon u
+      %h2 支援多種語法
+      .text
+        %p 不論是 html、css 或 javascript，都有各種不同的實現語法。本開發平台支援底下各種語法：
+        %ul
+          %li HTML/HAML
+          %li CSS/SCSS/SASS/LESS
+          %li Javascript/Coffeescript
+
+    .block
+      %span.icon $
+      %h2 內建函式庫
+      .text
+        %p 內建常用的函式庫及框架，只要勾選即可引用
+        %ul
+          %li Twitter Bootstrap Framework
+          %li The Semantic Grid System
+          %li Preboot.less
+          %li Less Elements

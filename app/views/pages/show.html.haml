@@ -1,0 +1,79 @@
+!!! 5
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{:name => 'viewport', :content => 'width=device-width, initial-scale=1.0'}
+    -# %script{:src => 'http://code.jquery.com/jquery-1.8.0.min.js'}
+
+    / Le HTML5 shim, for IE6-8 support of HTML elements
+    /[if lt IE 9]
+      = javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
+    /[if lt IE 9]
+      %script{:src => "http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"}
+
+
+    = javascript_include_tag 'application'
+    = javascript_include_tag "http://#{$SNIPPET_HOST}:9293/pusher/faye.js"
+    = include_gon
+
+
+    - if params[:device]
+      = javascript_include_tag 'preview'
+
+
+    = stylesheet_link_tag 'pages'
+    = javascript_include_tag 'pages', 'data-type' => 'preview'
+
+
+    %title= @page.title
+
+    = raw @page.layout_head
+    = raw @page.head
+
+
+    - if @page.lessable == '1'
+      - if @page.layout
+        %link{:rel => 'stylesheet/less', :href => "#{@page.id}/css/layout/default.less" }
+        %link{:rel => "stylesheet/less", :media => "screen and (max-width: 480px)", :href => "#{@page.id}/css/layout/mobile.less"}
+        %link{:rel => "stylesheet/less", :media => "screen and (min-width: 481px) and (max-width: 979px)", :href => "#{@page.id}/css/layout/tablet.less"}
+        %link{:rel => "stylesheet/less", :media => "screen and (min-width: 980px)", :href => "#{@page.id}/css/layout/desktop.less"}
+        %link{:rel => "stylesheet/less", :media => "print", :href => "#{@page.id}/css/layout/print.less"}
+
+      %link{:rel => 'stylesheet/less', :href => "#{@page.id}/css/default.less" }
+      %link{:rel => "stylesheet/less", :media => "screen and (max-width: 480px)", :href => "#{@page.id}/css/mobile.less"}
+      %link{:rel => "stylesheet/less", :media => "screen and (min-width: 481px) and (max-width: 979px)", :href => "#{@page.id}/css/tablet.less"}
+      %link{:rel => "stylesheet/less", :media => "screen and (min-width: 980px)", :href => "#{@page.id}/css/desktop.less"}
+      %link{:rel => "stylesheet/less", :media => "print", :href => "#{@page.id}/css/print.less"}
+      -# %script{:src => 'http://cdnjs.cloudflare.com/ajax/libs/less.js/1.3.0/less-1.3.0.min.js'}
+      %script{:src => '/assets/less-1.3.1.min.js'}
+    - else
+      - if @page.layout
+        %link{:rel => 'stylesheet', :href => "#{@page.id}/css/layout/default.css" }
+        %link{:rel => "stylesheet", :media => "screen and (max-width: 480px)", :href => "#{@page.id}/css/layout/mobile.css"}
+        %link{:rel => "stylesheet", :media => "screen and (min-width: 481px) and (max-width: 979px)", :href => "#{@page.id}/css/layout/tablet.css"}
+        %link{:rel => "stylesheet", :media => "screen and (min-width: 980px)", :href => "#{@page.id}/css/layout/desktop.css"}
+        %link{:rel => "stylesheet", :media => "print", :href => "#{@page.id}/css/layout/print.css"}
+
+      %link{:rel => 'stylesheet', :href => "#{@page.id}/css/default.css" }
+      %link{:rel => "stylesheet", :media => "screen and (max-width: 480px)", :href => "#{@page.id}/css/mobile.css"}
+      %link{:rel => "stylesheet", :media => "screen and (min-width: 481px) and (max-width: 979px)", :href => "#{@page.id}/css/tablet.css"}
+      %link{:rel => "stylesheet", :media => "screen and (min-width: 980px)", :href => "#{@page.id}/css/desktop.css"}
+      %link{:rel => "stylesheet", :media => "print", :href => "#{@page.id}/css/print.css"}
+
+    /[if lt IE 9]
+      -#%script(src='http://code.jquery.com/jquery-1.8.0.min.js')
+      -# %script{:src => "http://html5shim.googlecode.com/svn/trunk/html5.js"}
+      -# %script{:src => "http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"}
+      -# %link(href="http://externalcdn.com/respond-proxy.html" id="respond-proxy" rel="respond-proxy")
+      -# %script(src='http://www.initializr.com/front/try/js/vendor/modernizr-2.6.1-respond-1.1.0.min.js')
+      %script(src='http://scottjehl.github.com/Respond/respond.src.js')
+
+
+    %script{:src => "#{@page.id}/js/layout/default.js"}
+    %script{:src => "#{@page.id}/js/default.js"}
+  %body
+    = raw @page.body
+
+
+    -# %link{:rel => "stylesheet/less", :media => "screen and (min-width: 481px) and (max-width: 767px)", :href => "#{@page.id}/css/tablet-portrait.less"}
+    -# %link{:rel => "stylesheet/less", :media => "screen and (min-width: 768px) and (max-width: 979px)", :href => "#{@page.id}/css/tablet-landscape.less"}    

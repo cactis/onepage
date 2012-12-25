@@ -1,0 +1,25 @@
+.title= title @book.title
+.description= simple_format @book.description
+%hr
+.form-actions
+  = link_to_edit @book
+  = link_to_delete @book
+  = link_to_new_page(@book)
+
+%h1 文件目錄
+%table.table
+  %thead
+    %th 文件名稱
+    %th 最後更新
+    %th 創建於
+    %th 書籍
+    %th 建立者
+    %th 套用框架
+    %th 愆生自
+    %th 管理
+  %tbody
+  - pages = @book.pages.page(params[:page])
+  %tbody
+    = render pages
+
+= paginate pages 

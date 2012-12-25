@@ -1,0 +1,42 @@
+!!! 5
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{:name => 'viewport', :content => 'width=device-width, initial-scale=1.0'}
+
+    %link{:rel => 'stylesheet/less', :href => "/books/#{@page.book.id}/pages/#{@page.id}/default.less" }
+
+    %script{:src => 'http://code.jquery.com/jquery-1.8.0.min.js'}
+
+    = stylesheet_link_tag 'pages_show'
+    = javascript_include_tag 'pages_show'
+
+
+    = raw @page.head
+
+
+    //  /* Landscape phones and down */
+    //  @media (max-width: 480px) { ... }
+    //
+    //  /* Landscape phone to portrait tablet */
+    //  @media (max-width: 767px) { ... }
+    //
+    //  /* Portrait tablet to landscape and desktop */
+    //  @media (min-width: 768px) and (max-width: 979px) { ... }
+    //
+    //  /* Large desktop */
+    //  @media (min-width: 1200px) { ... }
+
+
+    %link{:rel => "stylesheet/less", :media => "screen and (max-width: 480px)", :href => "/books/#{@page.book.id}/pages/#{@page.id}/mobile.less"}
+    -# %link{:rel => "stylesheet/less", :media => "screen and (min-width: 481px) and (max-width: 767px)", :href => "/books/#{@page.book.id}/pages/#{@page.id}/tablet-portrait.less"}
+    -# %link{:rel => "stylesheet/less", :media => "screen and (min-width: 768px) and (max-width: 979px)", :href => "/books/#{@page.book.id}/pages/#{@page.id}/tablet-portrait-landscape.less"}
+    %link{:rel => "stylesheet/less", :media => "screen and (min-width: 481px) and (max-width: 979px)", :href => "/books/#{@page.book.id}/pages/#{@page.id}/tablet.less"}
+    %link{:rel => "stylesheet/less", :media => "screen and (min-width: 980px)", :href => "/books/#{@page.book.id}/pages/#{@page.id}/desktop.less"}
+
+    %link{:rel => "stylesheet/less", :media => "print", :href => "/books/#{@page.book.id}/pages/#{@page.id}/print.less"}
+
+    %script{:src => 'http://cdnjs.cloudflare.com/ajax/libs/less.js/1.3.0/less-1.3.0.min.js'}
+    %title= @page.title
+  %body
+    = raw @page.body_to_html

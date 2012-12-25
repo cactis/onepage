@@ -1,0 +1,16 @@
+.comment
+  .wrap
+    .info
+      .author= link_to_polymorphic comment.user
+      -# .updated_at
+        更新於：
+        = time_ago_in_words comment.updated_at
+      .created_at
+        = time_ago_in_words comment.created_at
+      .toolbar
+        - if current_user && comment.user_id == current_user.id
+          = link_to '修改', edit_page_comment_path(comment.commentable, comment), :class => 'btn'
+          = link_to '刪除', page_comment_path(comment.commentable, comment), :class => 'btn', :confirm => '刪除？', :method => :delete
+    .content
+      .body
+        = raw comment.body

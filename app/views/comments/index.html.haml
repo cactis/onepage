@@ -1,0 +1,9 @@
+<script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+
+= title "#{@page.title} － 留言板"
+.actions.btn-groups
+  = link_to "<i class='icon'>+</i> 回到#{@page.title}".html_safe, polymorphic_path(@page), :class => 'btn'
+= render :partial => 'form'
+= render @comments
+.actions.btn-groups
+  = link_to "<i class='icon'>+</i> 回到#{@page.title}".html_safe, polymorphic_path(@page), :class => 'btn'

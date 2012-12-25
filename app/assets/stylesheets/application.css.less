@@ -1,0 +1,163 @@
+//= require jquery/nanoscroller
+//= require bootstrap_and_overrides
+
+@import 'semantic.gs/stylesheets/less/grid.less';
+@import 'elements.less';
+@import 'Preboot.less/bootstrap.less';
+
+
+@columns: 12;
+@column-width: 60;
+@gutter-width: 20;
+@total-width: 100%;
+
+
+
+@baseFontSize: 14px;
+@top_height: 183px;
+
+
+@baseLineHeight: 20px;
+@navbarBackgroundHighlight: #444;
+@navbarBackground: #000;
+@navbarText: #eee;
+@navbarLinkColor: #ddd;
+@navbarLinkColorHover: #fff;
+
+
+body{
+  font-family: UnifrakturCook:700;
+  line-height: 1.5;
+}
+
+input[type=text], textarea {
+  width: 100%;
+  font-size: 15px;
+  color: #111;
+}
+
+hr{
+  clear: both;
+  margin: 3em 0;
+}
+
+input[type=text]{
+  font-family: Coustard;
+}
+
+
+#tabs li a{
+  font-family: Comfortaa, Andika, "Ubuntu Mono";
+  font-weight: bold;
+}
+
+textarea{
+  height: 200px;
+  // font-family: "Droid Sans Mono", "PT Mono", "Ubuntu Mono", Comfortaa, Andika, Nunito, Numans;
+  font-family: 'Menlo', 'Courier New', 'Terminal', monospace
+}
+
+.form-actions{
+  text-align: right;
+}
+
+#logo{
+  font-family: "Chivo";
+  font-weight: bold;
+  display: inline-block;
+  width: 160px;
+  height: 20px;
+  font-size: 1.6em;
+  position: relative;
+}
+
+
+.pagination {
+  text-align: center;
+  clear: both;
+  padding: 1em 0;
+  .current, .active, .gap, a{
+    display: inline-block;
+    //font-size: 0.8em;
+    //float: left;
+    padding: 6px 10px;
+    line-height: 1.2;
+    text-decoration: none;
+    margin-left: 1px;
+    border: none;
+  }
+  a{
+  }
+  .active{
+    background-color: transparent;
+  }
+}
+
+
+.books{
+  position: relative;
+  margin: 0 auto 0;
+}
+.book{
+  float: left;
+  width: 300px;
+  margin: 10px 5px 5px;
+  padding: 10px;
+  background-color: #fff;
+  .title{
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+  }
+  border: 1px solid #ddd;
+  .box-shadow(0 1px 1px #eee);
+}
+
+.center{
+  text-align: center;
+}
+
+
+@font-face {
+  font-family: 'RaphaelIcons';
+  src: url("/fonts/raphaelicons/raphaelicons-webfont.eot");
+  src: local('☺'), url('/fonts/raphaelicons/raphaelicons-webfont.woff') format('woff'), url('/fonts/raphaelicons/raphaelicons-webfont.ttf') format('truetype'), url('/fonts/raphaelicons/raphaelicons-webfont.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.raphael-icon {
+  font-weight: normal;
+  font-style: normal;
+  line-height: normal;
+  font-family: 'RaphaelIcons';
+  //font-size: 2.2em;
+  font-size: inherit;
+  line-height: 0.5;
+  position: relative;
+  //top: 5px;
+  margin-right: 0.2em;
+}
+.dirty{
+  .box-shadow(0 0 10px rgba(255, 0, 0, 0.5))!important;
+}
+
+
+#footer{
+  text-align: center;
+  padding: 1em 0;
+  #gradient > .vertical-three-colors(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7), .25, rgba(0, 0, 0, 0.8));
+  //background-color: #666;
+  #translucent > .background(@black, 0.5);
+  color: #fff;
+  clear: both;
+  .box-shadow(0 -1px 10px #666);
+}
+body:after{
+  content: ''
+}
+
+.actions{
+ .column(12);
+ text-align: right;
+}

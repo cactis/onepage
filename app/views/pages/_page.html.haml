@@ -1,0 +1,11 @@
+%tr.page
+  %td= link_to page.title, page_path(page)
+  %td= time_ago_in_words page.updated_at
+  %td= time_ago_in_words page.created_at
+  %td= link_to_polymorphic page.book
+  %td= link_to_polymorphic page.user
+  %td= link_to_polymorphic page.layout
+  %td= link_to_polymorphic page.fork
+  %td.btn-group
+    = link_to_edit page, :href => edit_book_page_path(page.book, page)
+    = link_to_delete page    

@@ -1,0 +1,7 @@
+= simple_form_for([@page, @comment]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :body
+  .form-actions
+    = f.button :submit, '留言'

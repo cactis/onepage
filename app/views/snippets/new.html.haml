@@ -1,0 +1,8 @@
+%h1 new #{@snippet.class.model_name.human}
+
+#content
+  #editor
+    = form_for @snippet do |f|
+      = render :partial => "form", :locals => {:f => f}
+  #preview
+    = render :partial => @snippet.class.name.underscore

@@ -1,0 +1,31 @@
+TopZIndex plugin for jQuery
+http://topzindex.googlecode.com/
+
+Copyright © 2009-2011 Todd Northrop
+http://www.speednet.biz/
+
+Last updated October 21, 2010
+
+____________________________
+Version 1.2 (2010-10-21)
+	
+	Changed default selector back to "*" from "body *". Internally, the element selection was re-worked to use the browser's native document.getElementsByTagName("*") if all elements are to be selected, as this will perform better than creating a jQuery instance, regardless of the default selector used.
+	
+	Worked around a bug in WebKit browsers that returns scientific notation (instead of an integer value) for large z-index values. For example, Safari for Windows returns 1e+006 instead of 1000000 (1 million).
+	
+	Slight performance increase through setting the z-index style on elements using the native DOM style property of each element, rather than generating a jQuery matched set for each element and using .css("z-index", ___).
+
+____________________________
+Version 1.1 (2009-09-23)
+	
+	Changed default selector from "*" to "body *" (increases performance).
+	
+	Simplified the z-index calculation for each element to achieve better performance.
+
+____________________________
+Version 1.0 (2009-09-01)
+	
+	Initial release.
+
+
+__

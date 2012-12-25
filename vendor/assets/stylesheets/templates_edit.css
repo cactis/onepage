@@ -1,0 +1,82 @@
+/* line 1, ../../app/sass/templates_edit.sass */
+#aside {
+  width: 120px;
+}
+/* line 3, ../../app/sass/templates_edit.sass */
+#aside img {
+  width: 100px;
+}
+
+/* line 6, ../../app/sass/templates_edit.sass */
+#toolbar, #header, #aside {
+  background-color: #cccccc;
+  padding: 10px;
+  position: absolute;
+  cursor: pointer;
+}
+
+/* line 12, ../../app/sass/templates_edit.sass */
+#aside {
+  bottom: 0;
+}
+
+/* line 15, ../../app/sass/templates_edit.sass */
+#toolbar, #header {
+  width: 300px;
+  right: 0;
+}
+
+/* line 19, ../../app/sass/templates_edit.sass */
+#header {
+  bottom: 0;
+  height: 100px;
+}
+
+/* line 23, ../../app/sass/templates_edit.sass */
+.current {
+  border-color: red !important;
+}
+
+/* line 26, ../../app/sass/templates_edit.sass */
+#editor .obj {
+  border-color: transparent;
+  padding: 0.5em;
+  width: 120px;
+  margin-bottom: 1em;
+  height: 50px;
+}
+/* line 32, ../../app/sass/templates_edit.sass */
+#editor .obj:hover {
+  cursor: pointer;
+  border: 3px dotted #cccccc;
+}
+
+/* line 37, ../../app/sass/templates_edit.sass */
+#editor .obj {
+  cursor: pointer;
+}
+/* line 39, ../../app/sass/templates_edit.sass */
+#editor textarea {
+  width: 98%;
+  height: 98%;
+}
+/* line 42, ../../app/sass/templates_edit.sass */
+#editor textarea:hover {
+  cursor: text;
+}
+
+/* line 46, ../../app/sass/templates_edit.sass */
+#toolbar #ForeColorSelector, #toolbar #BackgroundColorSelector {
+  display: inline-block;
+}
+/* line 48, ../../app/sass/templates_edit.sass */
+#toolbar #ForeColorSelector div, #toolbar #BackgroundColorSelector div {
+  position: relative;
+  top: 3px;
+  left: 3px;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: url(/images/colorSelector.png) center;
+  border: 1px solid black;
+}

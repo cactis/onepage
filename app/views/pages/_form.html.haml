@@ -1,0 +1,125 @@
+-# = f.error_notification
+.form-inputs
+
+  = f.input :title, :label_html => {:class => 'inline'}
+  = f.input :snippet_id, :as => :hidden
+  .editor
+    .tabbable
+      %ul#tabs.nav.nav-tabs{'data-tabs' => "tabs"}
+        %li= link_to 'HTML HEAD', '#head_editor', 'data-toggle' => "tab"
+        %li.active= link_to 'HTML BODY', '#body_editor', 'data-toggle' => "tab"
+        %li= link_to '共用 CSS', '#default_editor', 'data-toggle' => "tab"
+        %li= link_to '桌面版 CSS', '#desktop_editor', 'data-toggle' => "tab"
+        %li= link_to '平板電腦 CSS', '#tablet_editor', 'data-toggle' => "tab"
+        %li= link_to '手機 CSS', '#mobile_editor', 'data-toggle' => "tab"
+        %li= link_to '列印 CSS', '#print_editor', 'data-toggle' => "tab"
+        %li= link_to 'Javascript', '#script_editor', 'data-toggle' => "tab"
+        %li= link_to '說明', '#description_editor', 'data-toggle' => 'tab'
+
+      .tab-content
+        .tab-container
+          #head_editor.tab-pane.active
+            = f.input :head, :as => :text, :label => "Head (HTML)"
+          #body_editor.tab-pane
+            = f.input :body, :as => :text, :label => "Body (HTML|Haml) #{link_to "HTML <span class='icon'>;</span> HAML ".html_safe, '#', :class => 'btn', :id => 'btn_html_to_haml'} #{select_tag :layout_id, options_from_collection_for_select(@page.book.pages - [@page], 'id', 'title', @page.layout_id), :prompt => '- Select Layout -'}"
+            = f.input :body_from_url, :label => link_to('Request body from', '#', :id => 'request_body', :class => 'btn')
+          #default_editor.tab-pane
+            = f.input :default, :as => :text, :label => "共用CSS (CSS|Less|Sass|Scss) #{link_to 'defalut.css', "/pages/#{@page.id}/default.css", :target => '_blank'}"
+          #desktop_editor.tab-pane
+            = f.input :desktop, :as => :text, :label => "桌面版CSS(CSS|Less|Sass|Scss)  #{link_to 'desktop.css', "/pages/#{@page.id}/desktop.css", :target => '_blank'}"
+          #tablet_editor.tab-pane
+            = f.input :tablet, :as => :text, :label => "平板電腦CSS(CSS|Less|Sass|Scss)  #{link_to 'tablet.css', "/pages/#{@page.id}/tablet.css", :target => '_blank'}"
+          #mobile_editor.tab-pane
+            = f.input :mobile, :as => :text, :label => "手機CSS(CSS|Less|Sass|Scss)  #{link_to 'mobile.css', "/pages/#{@page.id}/mobile.css", :target => '_blank'}"
+          #print_editor.tab-pane
+            = f.input :print, :as => :text, :label => "列印版本CSS(CSS|Less|Sass|Scss)  #{link_to 'print.css', "/pages/#{@page.id}/print.css", :target => '_blank'}"
+          #script_editor.tab-pane
+            = f.input :script, :as => :text, :label => "Javascript Code (Javascript|CoffeeScript)  #{link_to 'script.js', "/pages/#{@page.id}/script.js", :target => '_blank'}"
+          #description_editor.tab-pane
+            = f.input :description, :as => :text, :label => '說明'
+
+.option
+  %section.btn-toolbar
+    .btn-group.dropdown.pull-right
+      %a.btn.dropdown-toggle.btn-large.btn-success.btn-primary{'data-toggle' => 'dropdown', :href => '#', 'role' => 'button', :id => 'dLabel'}
+        %span.icon z
+        預覽…
+        %span.caret
+      %ul.dropdown-menu{'role' => 'menu', 'aria-labelledby' => "dLabel"}
+        %li= link_to '<span class="icon">S</span>桌面版本'.html_safe, "/pages/#{@page.id}?device=desktop", :id => 'open_desktop_screen'
+        %li= link_to '<span class="icon">i</span>平板版本'.html_safe, "/pages/#{@page.id}?device=tablet", :id => 'open_tablet_devices'
+        %li= link_to '<span class="icon">À</span>手機版本'.html_safe, "/pages/#{@page.id}?device=mobile", :id => 'open_mobile_devices'
+        %Li= link_to '<span class="icon">Î</span>列印版本'.html_safe, "/pages/#{@page.id}?device=print", :id => 'open_print_devices'
+        %li.divider
+        %li= link_to '<span class="icon">z</span>實際網址'.html_safe, polymorphic_path(@page), :id => 'open_page_show'
+        %li.divider
+        %li= link_to '<span class="icon">c</span>PDF 輸出'.html_safe, polymorphic_path(@page, :format => :pdf), :id => 'download_pdf'
+      - if @page.id?
+        = link_to "<i class='icon'>O</i> 留言(#{@page.comment_threads.count})…".html_safe, page_comments_path(@page), :class => 'btn btn-primary'
+
+  %section.libraries
+    %h3 函式庫
+    %ul
+      %li
+        = check_box_tag :semanticgs
+        = label_tag :semanticgs, "The Semantic GRID SYSTEM"
+        = link_to "<span class='icon'>È</span>".html_safe, 'http://semantic.gs/'
+      %li
+        = check_box_tag :lesshat
+        = label_tag :lesshat, "LESS Hat"
+        = link_to "<span class='icon'>È</span>".html_safe, 'http://lesshat.com//'
+      %li
+        = check_box_tag :prebootless
+        = label_tag :prebootless, "Preboot.less"
+        = link_to "<span class='icon'>È</span>".html_safe, 'http://markdotto.com/bootstrap/'
+      %li
+        = check_box_tag :lesselements
+        = label_tag :lesselements, "LESS Elements"
+        = link_to "<span class='icon'>È</span>".html_safe, 'http://lesselements.com/'
+      %li
+        = check_box_tag :bootstrap
+        = label_tag :bootstrap, "Bootstrap"
+        = link_to "<span class='icon'>È</span>".html_safe, 'http://twitter.github.com/bootstrap/'
+  %section.output
+    %h3 CSS 輸出格式
+    = check_box_tag :lessable
+    = label_tag :lessable, 'Enable Less File'
+
+.actions
+  - if @page.user
+    由
+    = link_to_polymorphic @page.user
+    創建
+  - if @page.fork
+    ，愆生自
+    = link_to_polymorphic @page.fork.user
+    的
+    = link_to_polymorphic @page.fork
+  %span.btn-toolbar
+    = link_to_delete @page
+    - if action_name == 'edit'
+      %span.btn-group.dropdown
+        %a.btn.btn-info{:href => book_path(@page.book)}
+          = "<span class='icon'>+</span>回到 #{@page.book.title}".html_safe
+        %a.btn.btn-info.dropdown-toggle{'data-toggle' => 'dropdown', :href =>'#'}
+          %span.icon I
+          移到…
+          %span.caret
+        %ul.dropdown-menu{'aria-labelledby' => 'dLabel', 'role' => 'menu', :id => 'movepage_btn'}
+          - (current_user.books - [@page.book]).each do |book|
+            %li
+              %a{'data-page-id' => @page.id, 'data-book-id' => book.id, :href => '#'}
+                %span.icon I
+                = book.title
+    - else
+      %a.btn.btn-info{:href => book_path(@page.book)}
+        = "<span class='icon'>+</span>回到 #{@page.book.title}".html_safe
+    - if @page.user == current_user || !@page.user
+      = link_to "<i class='icon'>-</i>另存".html_safe, '#', :class => 'btn', :id => 'fork_btn'
+      %button
+        %i.icon 0
+        更新 (Ctrl-S)
+    - else
+      %button
+        %i.icon -
+        另存 (Ctrl-S)

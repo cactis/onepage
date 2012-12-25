@@ -1,0 +1,15 @@
+- mode = mode || nil
+
+= javascript_include_tag "highcharts/js/highcharts"
+= javascript_include_tag "raphael/raphael"
+
+= javascript_include_tag 'less'
+
+#jspice
+  = raw @snippet.content unless mode == 'rescue'
+
+-# .embedded
+  嵌入代碼:(複製，貼入您的網頁即可)<br/>
+  %textarea.embedded_code
+    = javascript_include_tag polymorphic_url(@snippet) + ".js"
+    = content_tag :script, "var id = #{params[:id]}"

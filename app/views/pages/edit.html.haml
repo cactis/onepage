@@ -1,0 +1,38 @@
+= title "編輯 #{@page.title}"
+
+%section
+  = simple_form_for @page, :remote => true  do |f|
+    = render :partial => 'form', :locals => {:f => f}
+
+%section
+  %h1 從本頁所愆生的其他版本
+  %table.table
+    %thead
+      %th 文件名稱
+      %th 最後更新
+      %th 創建於
+      %th 書籍
+      %th 建立者
+      %th 套用框架
+      %th 愆生自
+      %th 管理
+    %tbody
+      = render @page.forks
+
+%section
+  .actions= link_to "<span class='icon'>@</span>New Page".html_safe, new_book_page_path(@page.book), :class => 'btn btn-primary', :target => '_blank'
+  %h1 #{link_to_polymorphic @page.book} 的頁面清單
+  - pages = @page.book.pages.page(params[:page])
+  %table.table
+    %thead
+      %th 文件名稱
+      %th 最後更新
+      %th 創建於
+      %th 書籍
+      %th 建立者
+      %th 套用框架
+      %th 愆生自
+      %th 管理
+    %tbody
+      = render pages
+  = paginate pages 

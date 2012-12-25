@@ -1,0 +1,22 @@
+!!! 5
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{:name => 'viewport', :content => 'width=device-width, initial-scale=1.0'}
+    = javascript_include_tag 'application'
+    = javascript_include_tag "http://#{$SNIPPET_HOST}:9293/pusher/faye.js"
+    = include_gon
+    %script{:src => '/assets/preview.js', 'data-type' => 'preview'}
+
+    = stylesheet_link_tag 'pages'
+
+    %title{'data-type' => 'preview'}
+      = "[#{params[:device]}] #{@page.title}"
+
+    - if @page.layout
+      = raw @page.layout.head
+
+    = raw @page.head
+
+  %body
+    = @page.body_to_html

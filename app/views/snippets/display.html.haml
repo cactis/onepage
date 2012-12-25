@@ -1,0 +1,20 @@
+= javascript_include_tag "rails"
+= javascript_include_tag "application"
+
+
+= javascript_include_tag "jquery/colorbox/colorbox/jquery.colorbox-min"
+
+= javascript_include_tag "excanvas/excanvas.compiled.js"
+= javascript_include_tag "processing.js/init.js"
+= javascript_include_tag "processing.js/processing.js"
+
+= javascript_include_tag "highcharts/js/highcharts"
+
+- if @snippet.is_a?(Scratch)
+  %script{:type => "application/processing"}
+    = raw @snippet.content
+- elsif @snippet.is_a?(Jspice)
+  = raw @snippet.content
+
+%canvas#canvas
+  本功能不支援 IE，請使用 Chrome, Firefox, Opera 等其他流覽器。

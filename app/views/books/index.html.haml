@@ -1,0 +1,26 @@
+%h1 網站作品清單
+
+%table
+  %tr
+    %th 名稱
+    %th 網頁數
+    %th 作者
+    %th 最後更新日
+    %th 創建日
+    %th 編輯
+    %th 刪除
+
+  - @books.each do |book|
+    %tr
+      %td= link_to_polymorphic book
+      %td= book.pages.count
+      %td= link_to_polymorphic book.user
+      %td= time_ago_in_words book.updated_at
+      %td= time_ago_in_words book.created_at
+      %td= link_to 'Edit', edit_book_path(book)
+      %td= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete
+
+= paginate @books
+%br
+.actions
+  = link_to 'New Book', new_book_path, :class => 'btn'

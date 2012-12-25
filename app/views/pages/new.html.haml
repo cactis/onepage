@@ -1,0 +1,4 @@
+= title "建立新頁面"
+%section
+  = simple_form_for @page do |f|
+    = render :partial => 'form', :locals => {:f => f}

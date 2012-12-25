@@ -1,0 +1,9 @@
+%h1 snippets List
+%ul
+  - @snippets.each do |snippet|
+    %li
+      = link_to snippet.title, polymorphic_path(snippet)
+      = author_tools(snippet)
+
+= paginate @snippets
+

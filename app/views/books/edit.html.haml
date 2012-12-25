@@ -1,0 +1,17 @@
+.span6
+  %h1 Editing book
+  %h1= link_to_polymorphic @book
+  = render 'form'
+
+.form-actions
+  = link_to_new_page(@book)
+
+%table.table
+  %thead
+    %th 文件名稱
+    %th 書籍
+    %th 發佈者
+    %th 管理
+  %tbody
+    - @book.pages.each do |page|
+      = render page
