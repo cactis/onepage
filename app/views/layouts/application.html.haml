@@ -52,3 +52,4 @@
         #main= yield
     %footer#footer
       .grid= render :partial => "/layouts/footer"
+    = render :partial => '/layouts/google_analytics' if Rails.env.production? 

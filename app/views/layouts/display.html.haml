@@ -6,4 +6,4 @@
     = stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/base/jquery-ui.css"
   %body
     = yield
-
+    = render :partial => '/layouts/google_analytics' if Rails.env.production? 

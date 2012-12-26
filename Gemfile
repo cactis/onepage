@@ -74,7 +74,16 @@ gem 'nokogiri'
 
 gem 'seed-fu'
 gem 'awesome_print'
+gem "query_reviewer", :git => "git://github.com/nesquena/query_reviewer.git"
 
-group :development, :test do
+
+group :development do
   gem 'haml-rails'
+
+  gem 'meta_request', '0.2.0'
+
+  gem 'rails-footnotes', '>= 3.7.5.rc4'
+
+  gem "better_errors"
+  gem "binding_of_caller"
 end
