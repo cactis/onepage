@@ -48,7 +48,7 @@
 #copyright
   2012 &copy;
 
--#
+- if supervisor?
   %ul
     %li= open("|more /etc/issue").read().match(/Ubuntu \d*.\d*/)
     %li= open("|uname -a").read()
@@ -63,4 +63,4 @@
 -# if supervisor?
   %ul.current_path
     %li= Rails.env
-    %li= request.symbolized_path_parameters.map{|k,v| "#{k}: #{v}"}*(', ')
+    -# %li= request.symbolized_path_parameters.map{|k,v| "#{k}: #{v}"}*(', ')

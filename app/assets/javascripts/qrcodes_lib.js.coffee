@@ -1,7 +1,7 @@
 host = "http://onepage.airfont.com"
 
 $(document).ready ->
-  $('body').append("<div style='background-color: #000; position: fixed; right: 0; bottom: 10%'><a href='#' id='qrcode-btn' style='font-size: 20px; padding: 6px; display: inline-block; color: white'><i class='icon-qrcode'></i></a>")
+  $('body').append("<div id='onepage_qr_code'><a href='#' id='qrcode-btn' style='font-size: 20px; padding: 6px; display: inline-block; color: white'><i class='icon-qrcode'></i></a>")
 
   $('#qrcode-btn').click ->
     # $("#back_to_home").fadeOut()
@@ -17,16 +17,24 @@ $(document).ready ->
       false
     false
 
-$('head').append("<style>#qrcode{
-  cursor: pointer;
-  position: fixed;
-  background-color: #111;
-  padding: 5px;
-  border: 3px solid #ccc;
-  right: 0;
-  bottom: 0;
-  z-index: 99;
-  color: #fff;}
+$('head').append("<style>
+  #onepage_qr_code{
+    background-color: #000;
+    position: fixed;
+    right: 0;
+    bottom: 10%;
+  }
+  #qrcode{
+    cursor: pointer;
+    position: fixed;
+    background-color: #111;
+    padding: 5px;
+    border: 3px solid #ccc;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    color: #fff;
+  }
   #qrcode img{
     width: 160px;
     border: 10px solid #eee;
