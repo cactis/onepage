@@ -12,7 +12,7 @@ class ImgController < ApplicationController
     text = opts["text"] || "#{w}x#{h}"
 
     color = "##{opts['color'] || '666'}"
-    font_size = opts['font-size'] || '24'
+    font_size = opts['font-size'] || '16'
 
     code = 191
     b_color = opts['background-color'] ? opts['background-color'].split(',').map{|s| s.to_i} : [code, code, code, 200]
