@@ -8,6 +8,7 @@ defaults: &defaults
   switch_url: 'http://[YOUR DEVELOPMENT DOMAIN]'
   reply_domain: "[YOUR PRODUCTION DOMAIN]"
   production_url: 'http://[YOUR PRODUCTION DOMAIN]'
+  paperclip_hash_secret: '[YOUR_PAPERCLIP_SECRET]'
   admin_emails: "admin@admin.com"
   google_analytics_key: ""
   upload_url: "http://127.0.0.1:3000/uploads"

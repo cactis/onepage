@@ -2,6 +2,9 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.2.11'
 
+
+gem 'passenger'
+
 gem 'mysql2'
 
 gem 'sass-rails',   '~> 3.2.3'
@@ -47,7 +50,7 @@ gem 'wicked_pdf'
 
 gem 'rqrcode-rails3'
 
-gem 'chunky_png'
+gem 'chunky_png'#, '1.2.6'
 gem 'mini_magick'
 
 

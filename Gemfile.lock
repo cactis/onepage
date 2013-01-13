@@ -85,7 +85,8 @@ GEM
     commonjs (0.2.6)
     compass (0.10.6)
       haml (>= 3.0.4)
-    devise (2.2.0)
+    daemon_controller (1.1.0)
+    devise (2.2.1)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
       railties (~> 3.1)
@@ -99,6 +100,7 @@ GEM
     faraday (0.8.4)
       multipart-post (~> 1.1)
     fastercsv (1.5.5)
+    fastthread (1.0.7)
     gon (4.0.2)
       actionpack (>= 2.3.0)
       json
@@ -186,6 +188,11 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.4.0)
       mime-types
+    passenger (3.0.19)
+      daemon_controller (>= 1.0.0)
+      fastthread (>= 1.0.1)
+      rack
+      rake (>= 0.8.1)
     polyglot (0.3.3)
     prawn (0.8.4)
       prawn-core (>= 0.8.4, < 0.9)
@@ -277,8 +284,8 @@ GEM
     subexec (0.2.2)
     switch_user (0.9.1)
     text-table (1.2.2)
-    therubyracer (0.11.1)
-      libv8 (~> 3.11.8.7)
+    therubyracer (0.11.2)
+      libv8 (~> 3.11.8.12)
       ref
     thor (0.16.0)
     treetop (1.4.12)
@@ -324,6 +331,7 @@ DEPENDENCIES
   omniauth-google-oauth2
   omniauth-twitter
   paperclip (~> 3.0)
+  passenger
   query_reviewer!
   rails (= 3.2.11)
   rails-footnotes (>= 3.7.5.rc4)
