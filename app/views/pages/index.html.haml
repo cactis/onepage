@@ -17,7 +17,7 @@
       %td= link_to_polymorphic page.user
       %td= time_ago_in_words page.updated_at
       %td= time_ago_in_words page.created_at
-      %td= link_to 'Edit', edit_page_path(page)
+      %td= link_to 'Edit', edit_book_page_path(page.book, page)
       %td= link_to 'Destroy', page, :confirm => 'Are you sure?', :method => :delete
 
 = paginate @pages      

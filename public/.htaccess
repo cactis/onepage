@@ -1,10 +1,10 @@
 RewriteEngine on
-RewriteCond %{HTTP_HOST} ^display.local.airfont.com [NC]
-RewriteCond %{REQUEST_METHOD}  !^(GET|HEAD) [NC]
-RewriteCond %{REQUEST_URI} !^/pages/ [NC]
-RewriteRule ^(.*) http://onepage.local.airfont.com/$1 [L]
 
 RewriteCond %{HTTP_HOST} ^onepage.local.airfont.com [NC]
 RewriteCond %{REQUEST_METHOD}  ^(GET|HEAD) [NC]
 RewriteCond %{REQUEST_URI} ^/pages/ [NC]
 RewriteRule ^(.*) http://display.local.airfont.com/$1 [L]
+
+RewriteCond %{HTTP_HOST} ^display.local.airfont.com [NC]
+RewriteCond %{REQUEST_URI} !^/pages/ [NC]
+RewriteRule ^(.*) http://onepage.local.airfont.com/$1 [L]
