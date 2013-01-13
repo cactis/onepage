@@ -1,13 +1,10 @@
-#RewriteEngine on
-#RewriteRule   ^/$  /about/  [R]
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^display.local.airfont.com [NC]
+RewriteCond %{REQUEST_METHOD}  !^(GET|HEAD) [NC]
+RewriteCond %{REQUEST_URI} !^/pages/ [NC]
+RewriteRule ^(.*) http://onepage.local.airfont.com/$1 [L]
 
-#RewriteCond {REQUEST_URI} http://display.local.airfont.com
-#RewriteCond {REQUEST_URI} !^http://display.local.airfont.com/pages
-#RewriteRule ^(.*)$ http://onepage.local.airfont.com [L,R=301]
-
-#RewriteCond {REQUEST_URI} http://onepage.local.airfont.com/pages
-#RewriteRule ^(.*)$ http://display.local.airfont.com [L,R=301]
-
-
-## RedirectMatch http://onepage.local.airfont.com/$ http://display.local.airfont.com/
-## RedirectMatch http://onepage.local.airfont.com/$ http://display.local.airfont.com/
+RewriteCond %{HTTP_HOST} ^onepage.local.airfont.com [NC]
+RewriteCond %{REQUEST_METHOD}  ^(GET|HEAD) [NC]
+RewriteCond %{REQUEST_URI} ^/pages/ [NC]
+RewriteRule ^(.*) http://display.local.airfont.com/$1 [L]
