@@ -7,4 +7,5 @@ RewriteRule ^(.*) http://display.local.airfont.com/$1 [L]
 
 RewriteCond %{HTTP_HOST} ^display.local.airfont.com [NC]
 RewriteCond %{REQUEST_URI} !^/pages/ [NC]
+RewriteCond %{REQUEST_URI} !^/assets/ [NC]
 RewriteRule ^(.*) http://onepage.local.airfont.com/$1 [L]
