@@ -48,19 +48,18 @@ $(document).ready ->
   $('.libraries input[type=checkbox]').click ->
     libraries = []
     $.each $('.libraries input[type=checkbox]'), (index, item) ->
-      libraries.push $(item).attr('id') if $(item).attr('checked')
-    alert
+      libraries.push $(item).attr('id') if $(item).prop('checked')
+    $.log libraries
     $.ajax
       url: '/pages/' + gon.data.page.id
       type: 'put'
       data:
         page:
-          id: gon.data.page.id
           libraries: libraries.join(';')
 
   if gon.data.page.settings.libraries
     $.each gon.data.page.settings.libraries.split(';'), (index, item) ->
-      $('.libraries #' + item).attr('checked', true)
+      $('.libraries #' + item).prop('checked', true)
 
   # --------------- lessable ---------------------------
   $('#lessable').click ->
@@ -70,7 +69,7 @@ $(document).ready ->
       data:
         page:
           id: gon.data.page.id
-          lessable: if $(this).attr('checked') then '1' else '0'
+          lessable: if $(this).prop('checked') then '1' else '0'
 
 
-  $('#lessable').attr('checked', if gon.data.page.settings.lessable == '1' then true else false )
+  $('#lessable').prop('checked', if gon.data.page.settings.lessable == '1' then true else false )

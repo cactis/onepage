@@ -1,6 +1,10 @@
 //= require jquery
+//= require jquery.ui.all
+
+//= require jquery-migrate-1.0.0
+
 //= require jquery_ujs
-//= require jquery-ui-1.9.1.custom/js/jquery-ui-1.9.1.custom.min
+
 
 //= require jquery/jquery.taboverride-1.0
 

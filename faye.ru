@@ -1,5 +1,6 @@
-gem 'faye', '0.8.1'
+#gem 'faye', '0.8.1'
 require 'faye'
+
 Faye::WebSocket.load_adapter 'thin'
 require File.expand_path('../config/initializers/faye_token.rb', __FILE__)
 

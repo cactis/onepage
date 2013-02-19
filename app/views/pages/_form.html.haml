@@ -1,7 +1,7 @@
 -# = f.error_notification
 .form-inputs
 
-  = f.input :title, :label_html => {:class => 'inline'}
+  = f.input :title, :label_html => {:class => 'inline'}, :input_html => {:autocomplete => 'off'}
   = f.input :snippet_id, :as => :hidden
   .editor
     .tabbable

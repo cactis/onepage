@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.11'
+gem 'rails', '3.2.12'
 
 
 gem 'passenger'
@@ -13,6 +13,7 @@ gem 'uglifier', '>= 1.0.3'
 gem 'coffee-rails', '~> 3.2.1'
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 gem 'therubyracer'
 gem 'less-rails-bootstrap'#, '~> 1.3.0'
@@ -37,7 +38,7 @@ gem 'compass',     '~> 0.10.2'
 
 gem 'switch_user'
 
-gem 'haml', '~> 3.2.beta.1'
+gem 'haml'#, '~> 3.2.beta.1'
 gem 'html2haml'
 
 gem 'acts_as_commentable_with_threading'
@@ -79,6 +80,8 @@ gem 'seed-fu'
 gem 'awesome_print'
 gem "query_reviewer", :git => "git://github.com/nesquena/query_reviewer.git"
 
+gem 'faye', '0.8.1'
+gem 'thin'
 
 group :development do
   gem 'haml-rails'
